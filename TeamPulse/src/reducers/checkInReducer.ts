@@ -24,6 +24,7 @@ export function checkInReducer(
       ];
       case "REMOVE_CHECKIN":
       //Vad ska hända här? Tänk: du vill filtrera bort rätt checkin.
+      return state.filter((CheckIn) =>CheckIn.id !== action.payload.id);
       case "CLEAR_DAY":
       //Vad ska hända här? Tänk: du vill ta bort alla som matchade ett datum.
       default:
