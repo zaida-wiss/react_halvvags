@@ -14,21 +14,21 @@ export function checkInReducer(
       case "ADD_CHECKIN":
       //Vad ska hända här? Tänk: du vill lägga till en ny check-in i listan.
       //Hur skapar du id och timestamp?
-      return [
-        ...state,
-        {
-          ...action.payload,
-          id:crypto.randomUUID(),
-          timestamp: new Date(),
-        },
-      ];
+        return [
+          ...state,
+          {
+            ...action.payload,
+            id:crypto.randomUUID(),
+            timestamp: new Date(),
+          },
+        ];
       case "REMOVE_CHECKIN":
       //Vad ska hända här? Tänk: du vill filtrera bort rätt checkin.
-      return state.filter((CheckIn) =>CheckIn.id !== action.payload.id);
+        return state.filter((CheckIn) =>CheckIn.id !== action.payload.id);
       case "CLEAR_DAY":
       //Vad ska hända här? Tänk: du vill ta bort alla som matchade ett datum.
-return state.filter((CheckIn) =>
-  CheckIn.timestamp.toISOString().slice(0,10) !== action.payload.date
+        return state.filter((CheckIn) =>
+          CheckIn.timestamp.toISOString().slice(0,10) !== action.payload.date
 );
 
       default:
