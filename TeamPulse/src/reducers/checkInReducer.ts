@@ -27,6 +27,10 @@ export function checkInReducer(
       return state.filter((CheckIn) =>CheckIn.id !== action.payload.id);
       case "CLEAR_DAY":
       //Vad ska hända här? Tänk: du vill ta bort alla som matchade ett datum.
+return state.filter((CheckIn) =>
+  CheckIn.timestamp.toISOString().slice(0,10) !== action.payload.date
+);
+
       default:
       return state;
     }
